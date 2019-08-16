@@ -1,7 +1,8 @@
 server {
     listen 80;
-    server_name  http://app.test;
-    root   /var/www/html/app;
+    # server_name  http://app.test;
+    server_name  _;
+    root   /var/www/app;
     index index.html index.php;
 
     location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
@@ -21,7 +22,7 @@ server {
 
     location ~ \.php$ {
 	      include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/run/php/php5.6-fpm.sock;
     }
 
 }
